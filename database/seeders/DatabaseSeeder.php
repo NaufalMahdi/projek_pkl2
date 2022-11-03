@@ -22,6 +22,51 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
-        // ]);
+        // 
+    User::create([
+        'name' => 'Naufal Mahdi',
+        'email' => 'naupal11746@gmail.com',
+        'password' => bcrypt('12345')
+    ]);
+
+    Kategori::create([
+        'name' => 'Pertanian',
+        'slug' => 'pertanian'
+    ]);
+
+    Kategori::create([
+        'name' => 'Pembangunan',
+        'slug' => 'pembangunan'
+    ]);
+
+    Post::create([
+        'title' => 'Judul Pertama',
+        'slug' => 'judul-pertama',
+        'excerpt' => 'lorem ipsummmmmmmmmmm',
+        'body' => 'loremmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm.',
+        'kategori_id' => 1,
+        'user_id' => 1
+    ]);
+
+
+    Post::create([
+        'title' => 'Judul Kedua',
+        'slug' => 'judul-kedua',
+        'excerpt' => 'lorem ipsummmmmmmmmmm',
+        'body' => 'loremmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm.',
+        'kategori_id' => 1,
+        'user_id' => 1
+    ]);
+
+
+    Post::create([
+        'title' => 'Judul Ketiga',
+        'slug' => 'judul-ketiga',
+        'excerpt' => 'lorem ipsummmmmmmmmmm',
+        'body' => 'loremmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm.',
+        'kategori_id' => 2,
+        'user_id' => 1
+    ]);
+
     }
 }
