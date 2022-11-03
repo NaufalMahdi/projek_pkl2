@@ -19,7 +19,20 @@
 
       <ul class="navbar-nav ms-auto">
         @auth
-          <li class="nav-item dropdown">
+        <!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Welcome back, {{ auth()->user()->name }}
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Dashboard</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Logout</a>
+  </div>
+</div>
+
+        {{-- eror --}}
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Welcome back, {{ auth()->user()->name }}
           </a>
@@ -28,10 +41,10 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
-        </li>
+        </li> --}}
         @else
         <li class="nav-item">
-          <a href="/login" class="nav-link {{ ($active === "Login") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i>
+          <a href="/login" class="nav-link {{ ($title === "Login") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i>
           Login</a>
         </li>
         @endauth
