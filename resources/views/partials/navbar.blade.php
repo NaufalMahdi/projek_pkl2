@@ -19,7 +19,6 @@
 
       <ul class="navbar-nav ms-auto">
         @auth
-        <!-- Example single danger button -->
 <div class="btn-group">
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Welcome back, {{ auth()->user()->name }}
@@ -27,10 +26,12 @@
   <div class="dropdown-menu">
     <a class="dropdown-item" href="/dashboard"><i> Dashboard</i>
     <div class="dropdown-divider"></div>
-    <form action="">
-      <button type="submit" class="dropdown-item"></button>
+
+    <form action="/logout" method="post">
+      @csrf
+      <button type="submit" class="dropdown-item">Logout</button>
     </form>
-    <a class="dropdown-item" href="#">Logout</a>
+    <!-- <a class="dropdown-item" href="#">Logout</a> -->
   </div>
 </div>
 
