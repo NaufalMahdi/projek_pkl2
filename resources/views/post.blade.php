@@ -2,18 +2,20 @@
 
 @section('container')
 
-<h2>{{ $post->title }}</h2>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+		<h2>{{ $post->title }}</h2>
 
-<p>Kategori : <a href="/kategories">{{ $post->kategori->name }} </a></p>
 
-{!! $post->body !!}
-<table class="table table-bordered">
-					<tr>
-						<th>NO</th>
-                        <th>Kecamatan</th>
-						<th>Jumlah</th>
-						
-					</tr>
+		<p>Kategori : <a href="/kategories">{{ $post->kategori->name }} </a></p>
 
-<a href="/posts">Back to Posts</a>
+			<img src="https://source.unsplash.com/1200x400?{{ $post->kategori->name }}" class="card-img-top" alt="{{ $post->kategori->name }}" class="img-fluid">
+			
+			{!! $post->body !!}
+			<a href="/posts">Back to Posts</a>
+		</div>
+	</div>
+</div>
+
 @endsection 

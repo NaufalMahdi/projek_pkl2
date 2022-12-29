@@ -11,3 +11,16 @@ Kategori::create([
 'name' => 'Pertanian',
 'slug' => 'pertanian'
 ])
+
+@foreach ($posts->skip(1) as $post)
+
+    <article class="mb-5 border-bottom pb-4">
+    <h2><a href="/posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
+
+    <p>Kategori : <a href="/kategories/{{ $post->kategori->slug }} ">{{ $post->kategori->name }} </a></p>
+    
+    <p>{{ $post->excerpt }}</p>
+
+    <a href="/posts/{{ $post->slug }}">Baca Selanjutnya</a>
+    </article>
+    @endforeach

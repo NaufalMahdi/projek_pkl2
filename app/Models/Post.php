@@ -11,9 +11,15 @@ class Post extends Model
 
     // protected $fillable = ['title', 'excerpt', 'body' ];
     protected $guarded = ['id'];
+    protected $with = ['kategori'];
 
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
