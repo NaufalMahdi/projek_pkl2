@@ -7,7 +7,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
-
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\LayananController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +21,13 @@ use App\Http\Controllers\DashboardPostController;
 */
 
 Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
+    return view('landing', [
+        "title" => "Home",
+        'name' => 'Sekilas Tentang SMP Negeri 1 Jember'
     ]);
 });
+
+Route::get('/landing', [LandingPageController::class, 'index']);
 
 Route::get('/about', function () {
     return view('about', [
@@ -34,16 +38,24 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/layanan', function () {
+    return view('layanan', [
+        "title" => "Layanan",
+        "name" => "Naufal Mahdi",
+        "email" => "naufalmahdi@gmail.com",
+        "image" => "naufal.jpg"
+    ]);
+});
 
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/kategories', function(Kategori $kategori){
+Route::get('/kategories', function (Kategori $kategori) {
     return view('kategori', [
-        'title'=> $kategori->name,
-        'posts'=> $kategori->posts,
-        'kategori'=> $kategori->name
+        'title' => $kategori->name,
+        'posts' => $kategori->posts,
+        'kategori' => $kategori->name
     ]);
 });
 
@@ -54,7 +66,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-route::get('/dashboard', function(){
+route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 

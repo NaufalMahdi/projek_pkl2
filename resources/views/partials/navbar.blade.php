@@ -1,48 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">   
-    <a class="navbar-brand" href="/">Welcome</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ ($title === "About") ? 'active' : '' }}" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ ($title === "Posts") ? 'active' : '' }}" href="/posts">Blog</a>
-        </li>
-      </ul>
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
 
-      <ul class="navbar-nav ms-auto">
-        @auth
-<div class="btn-group">
-  <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Welcome back, {{ auth()->user()->name }}
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="/dashboard"><i> Dashboard</i>
-    <div class="dropdown-divider"></div>
+        <img src="assets/img/logo_white.png" width="300" height="60" />
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-    <form action="/logout" method="post">
-      @csrf
-      <button type="submit" class="dropdown-item">Logout</button>
-    </form>
-    <!-- <a class="dropdown-item" href="#">Logout</a> -->
-  </div>
-</div>
-
-        @else
-        <li class="nav-item">
-          <a href="/login" class="nav-link {{ ($title === "Login") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i>
-          Login</a>
-        </li>
-        @endauth
-      </ul>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="{{ url('landing') }}">Beranda</a></li>
+                <li><a class="nav-link scrollto" href="{{ url('about') }}">Profil</a></li>
+                <li><a class="nav-link scrollto" href="#services">Pengumuman</a></li>
+                <li><a class="nav-link scrollto " href="#portfolio">Foto</a></li>
+                <li><a class="nav-link scrollto" href="posts">Pengumuman Informasi</a></li>
+                <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+                <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li class="dropdown"><a href="#"><span>Pilihan</span> <i
+                                    class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="posts">Pengumuman Informasi</a></li>
+                                <li><a href="#">Modul PJJ </a></li>
+                                <li><a href="#">PPDB 2023</a></li>
+                                <li><a href="#">Digital Library</a></li>
+                                <li><a href="#">CBT</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('layanan') }}">Layanan Ligalisir</a></li>
+                        <li><a href="#">Layanan Surat Izin</a></li>
+                        <li><a href="#">Layanan Surat Keterangan Aktif</a></li>
+                        <li><a href="#">Layanan Surat Rekomendasi</a></li>
+                        <li><a href="#">NISN</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
     </div>
-  </div>
-</nav>
+</header><!-- End Header -->
